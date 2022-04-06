@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Category;
 use App\Post;
 
 class PostController extends Controller
@@ -14,9 +15,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $categories = Category::all(); 
         $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts', 'categories'));
     }
 
     /**

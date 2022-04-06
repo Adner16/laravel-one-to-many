@@ -14,6 +14,7 @@
         <p>{{$post->content}}</p>
         <img src="{{$post->image}}" alt="">
         <br>
+        <p>{{$post->category->label}}</p>
         <a href="{{route('admin.posts.show', $post->id)}}" class='btn'>mostra</a>
         <br>
         <a href="{{route('admin.posts.edit', $post->id)}}">Modifica</a>
