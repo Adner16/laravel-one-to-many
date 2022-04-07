@@ -27,8 +27,11 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('posts.create');
+    {   
+        $categories = Category::all(); 
+        return view('posts.create', compact('categories'));
+
+
     }
 
     /**
@@ -76,7 +79,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit' , compact('post'));
+        $categories = Category::all(); 
+        return view('posts.edit' , compact('post', 'categories'));
     }
 
     /**

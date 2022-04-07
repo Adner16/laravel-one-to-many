@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Crea Post</title>
 </head>
 <body>
@@ -31,7 +32,21 @@
             {{$message}}
             </div>
             @enderror
+
+            <label for="category_id">Categoria</label>
+            <select id="category_id" name="category_id">
+                <option value="">nessuna categoria</option>
+            @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->label}}</option>
+            @endforeach
+            </select>
+            @error('category_id')
+            <div class="invalid-feedback">
+            {{$message}}
+            </div>
+            @enderror
             <button type="submit">Invia</button>
+
         </form>
         <a href="{{route('admin.posts.index')}}" class='btn'>Annulla</a>
 </body>
